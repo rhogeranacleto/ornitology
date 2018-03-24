@@ -1,4 +1,6 @@
 import { Server } from 'hapi';
+import { categoryRoutes } from './category/routes';
+import { itemRoutes } from './item/routes';
 
 export async function createServer() {
 
@@ -15,6 +17,9 @@ export async function createServer() {
 		console.log(err);
 		process.exit(1);
 	}
+
+	server.route(itemRoutes);
+	server.route(categoryRoutes);
 
 	console.log('Rodando');
 }
