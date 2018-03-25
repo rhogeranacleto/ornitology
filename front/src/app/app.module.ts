@@ -13,18 +13,25 @@ import {
 	MatFormFieldModule,
 	MatOptionModule,
 	MatSelectModule,
-	MatListModule
+	MatListModule,
+	MatSidenavModule,
+	MatIconModule,
+	MatMenuModule
 } from '@angular/material';
 import { ItemComponent } from './item/item.component';
 import { CategoryService } from './category/category.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ItemService } from './item/item.service';
+import { RouterModule, Routes } from '@angular/router';
+import { appRoutes } from './routes';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		ItemComponent
+		ItemComponent,
+		CategoryComponent
 	],
 	imports: [
 		BrowserModule,
@@ -38,7 +45,14 @@ import { ItemService } from './item/item.service';
 		MatOptionModule,
 		HttpClientModule,
 		ReactiveFormsModule,
-		MatListModule
+		MatListModule,
+		MatSidenavModule,
+		MatIconModule,
+		MatMenuModule,
+		RouterModule.forRoot(
+			appRoutes,
+			{ enableTracing: true } // <-- debugging purposes only
+		)
 	],
 	providers: [
 		HttpClient,
