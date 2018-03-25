@@ -5,7 +5,11 @@ export interface IItem extends Document {
 }
 
 export const ItemSchema = new Schema({
-	name: String
+	name: String,
+	category: {
+		type: Schema.Types.ObjectId,
+		ref: 'Category'
+	}
 }, {
 		timestamps: {
 			createdAt: 'created_at',

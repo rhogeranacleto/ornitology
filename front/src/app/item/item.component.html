@@ -1,0 +1,28 @@
+<div class="create-new-button" *ngIf="showForm">
+	<button mat-raised-button color="primary" (click)="toggleShowForm()">Adicionar novo item</button>
+</div>
+<div class="create-new-form" *ngIf="!showForm">
+	<form [formGroup]="itemForm">
+		<mat-form-field>
+			<input matInput placeholder="Nome" formControlName="name" [(ngModel)]="item.name">
+		</mat-form-field>
+		<mat-form-field>
+			<mat-select placeholder="Categoria" [(value)]="item.category">
+				<mat-option *ngFor="let category of categories" [value]="category.id">
+					{{ category.name }}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<div>
+			<button mat-raised-button color="primary" (click)="save()" [disabled]="!itemForm.valid">Adicionar</button>
+		</div>
+	</form>
+</div>
+<div class="list-items">
+	<mat-list role="list">
+		<mat-list-item *ngFor="let item of items" role="listitem">
+			<div>{{item.name}}</div>
+			<div>olar</div>
+		</mat-list-item>
+	</mat-list>
+</div>
