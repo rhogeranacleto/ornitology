@@ -8,6 +8,11 @@ export class CategoryService {
 
 	constructor(private http: HttpClient) { }
 
+	create(category: Category) {
+
+		return this.http.post<Category>(environment.api + '/category', category).toPromise();
+	}
+
 	getAll() {
 
 		return this.http.get<Category[]>(environment.api + '/categories').toPromise();
