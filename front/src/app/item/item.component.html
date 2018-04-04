@@ -13,16 +13,28 @@
 				</mat-option>
 			</mat-select>
 		</mat-form-field>
+		<mat-form-field>
+			<mat-select placeholder="Unidade" [(value)]="item.unity">
+				<mat-option *ngFor="let unity of unities" [value]="unity">
+					{{ unity }}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
 		<div>
 			<button mat-raised-button color="primary" (click)="save()" [disabled]="!itemForm.valid">Adicionar</button>
 		</div>
 	</form>
 </div>
 <div class="list-items">
-	<mat-list role="list">
-		<mat-list-item *ngFor="let item of items" role="listitem">
-			<div>{{item.name}}</div>
-			<div>olar</div>
-		</mat-list-item>
-	</mat-list>
+	<div *ngFor="let category of categories">
+		<h4>{{category.name}}</h4>
+		<div *ngFor="let item of items">
+			<mat-list-item *ngIf="item.category == category.id" role="listitem">
+				<div>
+					<mat-checkbox>{{item.name}}</mat-checkbox>
+				</div>
+<mat-divider></mat-divider>
+			</mat-list-item>
+		</div>
+	</div>
 </div>

@@ -16,7 +16,9 @@ import {
 	MatListModule,
 	MatSidenavModule,
 	MatIconModule,
-	MatMenuModule
+	MatMenuModule,
+	MatCheckboxModule,
+	MatDividerModule
 } from '@angular/material';
 import { ItemComponent } from './item/item.component';
 import { CategoryService } from './category/category.service';
@@ -37,18 +39,20 @@ import { CategoryComponent } from './category/category.component';
 		BrowserModule,
 		environment.production ? ServiceWorkerModule.register('ngsw-worker.js') : [],
 		BrowserAnimationsModule,
+		ReactiveFormsModule,
+		HttpClientModule,
 		MatToolbarModule,
 		MatButtonModule,
 		MatInputModule,
 		MatFormFieldModule,
 		MatSelectModule,
 		MatOptionModule,
-		HttpClientModule,
-		ReactiveFormsModule,
 		MatListModule,
 		MatSidenavModule,
 		MatIconModule,
 		MatMenuModule,
+		MatCheckboxModule,
+		MatDividerModule,
 		RouterModule.forRoot(
 			appRoutes,
 			{ enableTracing: true } // <-- debugging purposes only

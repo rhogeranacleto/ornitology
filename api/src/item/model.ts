@@ -1,7 +1,16 @@
 import { Document, model, Model, Schema } from 'mongoose';
+import { ICategory } from '../category/model';
+
+enum Unity {
+	un = 'un',
+	kg = 'kg',
+	g = 'g'
+}
 
 export interface IItem extends Document {
 	name: string;
+	category: ICategory;
+	unity: Unity;
 }
 
 export const ItemSchema = new Schema({
@@ -9,6 +18,10 @@ export const ItemSchema = new Schema({
 	category: {
 		type: Schema.Types.ObjectId,
 		ref: 'Category'
+	},
+	unity: {
+		type: String,
+		enum: Object.keys(Unity)
 	}
 }, {
 		timestamps: {

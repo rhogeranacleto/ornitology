@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../category/category.service';
 import { Category } from '../category/category';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { Item } from './item';
+import { Item, Unity } from './item';
 import { ItemService } from './item.service';
 
 @Component({
@@ -16,17 +16,22 @@ export class ItemComponent implements OnInit {
 
 	items: Item[];
 
-	showForm = false;
+	showForm = true;
 
 	categories: Category[];
 
 	itemForm: FormGroup;
 
+	unities: string[];
+
 	constructor(
 		private categoryService: CategoryService,
 		private formBuilder: FormBuilder,
 		private itemService: ItemService
-	) { }
+	) {
+
+		this.unities = Object.keys(Unity);
+	 }
 
 	ngOnInit() {
 
@@ -48,7 +53,11 @@ export class ItemComponent implements OnInit {
 
 	save() {
 
-		this.itemService.create(this.item);
+		this.itemService.create(this.item).then(() => {
+
+			this.setItems();
+			this.showForm = true;
+		});
 	}
 
 	async setCategoryes() {
