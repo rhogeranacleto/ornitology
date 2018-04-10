@@ -18,22 +18,31 @@ import {
 	MatIconModule,
 	MatMenuModule,
 	MatCheckboxModule,
-	MatDividerModule
+	MatDividerModule,
+	MatDialogModule,
+	MatDatepickerModule,
+	MatNativeDateModule,
+	MAT_DATE_LOCALE,
+	MatAutocompleteModule
 } from '@angular/material';
 import { ItemComponent } from './item/item.component';
 import { CategoryService } from './category/category.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ItemService } from './item/item.service';
 import { RouterModule, Routes } from '@angular/router';
 import { appRoutes } from './routes';
 import { CategoryComponent } from './category/category.component';
+import { ListItemComponent } from './item/components/list-item';
+import { AddItemComponent } from './item/components/add-item';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		ItemComponent,
-		CategoryComponent
+		CategoryComponent,
+		ListItemComponent,
+		AddItemComponent
 	],
 	imports: [
 		BrowserModule,
@@ -53,15 +62,27 @@ import { CategoryComponent } from './category/category.component';
 		MatMenuModule,
 		MatCheckboxModule,
 		MatDividerModule,
+		MatDialogModule,
+		MatDatepickerModule,
+		MatNativeDateModule,
+		MatAutocompleteModule,
+		FormsModule,
 		RouterModule.forRoot(
 			appRoutes,
-			{ enableTracing: true } // <-- debugging purposes only
+			{ enableTracing: false } // <-- debugging purposes only
 		)
 	],
 	providers: [
 		HttpClient,
 		CategoryService,
-		ItemService
+		ItemService,
+		{
+			provide: MAT_DATE_LOCALE,
+			useValue: 'pt-BR'
+		},
+	],
+	entryComponents: [
+		AddItemComponent
 	],
 	bootstrap: [AppComponent]
 })

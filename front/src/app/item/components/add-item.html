@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Compra de {{data.item.name}}</h1>
+<div mat-dialog-content>
+	<mat-form-field>
+		<button mat-icon-button matPrefix (click)="removeAmount()">
+			<mat-icon aria-label="Adicionar">remove_circle_outline</mat-icon>
+		</button>
+		<input matInput placeholder="Quantidade" type="number" [(ngModel)]="amount">
+		<button mat-icon-button matSuffix (click)="addAmount()">
+			<mat-icon aria-label="Adicionar">add_circle_outline</mat-icon>
+		</button>
+	</mat-form-field>
+	<mat-form-field>
+		<span matPrefix>R$ &nbsp;</span>
+		<input matInput placeholder="Valor" type="number" [(ngModel)]="value">
+	</mat-form-field>
+	<mat-form-field>
+		<input matInput [matDatepicker]="shopDate" placeholder="Data de compra" [(ngModel)]="date">
+		<mat-datepicker-toggle matSuffix [for]="shopDate"></mat-datepicker-toggle>
+		<mat-datepicker #shopDate disabled="false"></mat-datepicker>
+	</mat-form-field>
+	<mat-form-field>
+		<input type="text" placeholder="Local" aria-label="Number" [formControl]="myControl" matInput [matAutocomplete]="auto" [(ngModel)]="location">
+		<mat-autocomplete #auto="matAutocomplete">
+			<mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+				{{ option }}
+			</mat-option>
+		</mat-autocomplete>
+	</mat-form-field>
+</div>
+<div mat-dialog-actions>
+	<button mat-button (click)="onNoClick()">Cancelar</button>
+	<button mat-button (click)="ok()" cdkFocusInitial>Ok</button>
+</div>
