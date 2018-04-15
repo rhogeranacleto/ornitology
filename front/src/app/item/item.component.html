@@ -30,7 +30,7 @@
 		<h4>{{category.name}}</h4>
 		<div *ngFor="let item of items">
 			<mat-list-item *ngIf="item.categoryId == category.id" role="listitem">
-				<app-list-item [item]="item"></app-list-item>
+				<app-list-item [item]="item" (update)="setItems()"></app-list-item>
 			</mat-list-item>
 		</div>
 	</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Item, IEntrance, IExit } from '../item';
 import { MatDialog } from '@angular/material';
 import { EntranceComponent } from '../entrance/entrance.component';
@@ -12,6 +12,9 @@ import { ExitComponent } from '../exit/exit.component';
 export class ListItemComponent implements OnInit {
 
 	@Input() item: Item;
+
+	@Output()
+	update: EventEmitter<void> = new EventEmitter<void>();
 
 	constructor(
 		public dialog: MatDialog
@@ -27,9 +30,9 @@ export class ListItemComponent implements OnInit {
 			}
 		});
 
-		dialogRef.afterClosed().subscribe((result: IEntrance) => {
+		dialogRef.afterClosed().subscribe(() => {
 
-			console.log(result);
+			this.update.emit();
 		});
 	}
 
@@ -41,9 +44,9 @@ export class ListItemComponent implements OnInit {
 			}
 		});
 
-		dialogRef.afterClosed().subscribe((result: IExit) => {
+		dialogRef.afterClosed().subscribe(() => {
 
-			console.log(result);
+			this.update.emit();
 		});
 	}
 }
