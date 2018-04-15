@@ -28,7 +28,7 @@ export class ListItemComponent implements OnInit {
 
 		dialogRef.afterClosed().subscribe((result: IEntrance) => {
 
-			result.itemId = this.item.id;
+			console.log(result);
 		});
 	}
 }

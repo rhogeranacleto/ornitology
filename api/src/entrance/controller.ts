@@ -5,6 +5,6 @@ export class EntranceController {
 
 	static create(entrance: Entrance) {
 
-		getManager().save(entrance);
+		return getManager().save(entrance);
 	}
 }

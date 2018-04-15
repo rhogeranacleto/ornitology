@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { startWith } from 'rxjs/operators/startWith';
 import { map } from 'rxjs/operators/map';
+import { Item } from '../item';
+import { EntranceService } from './entrance.service';
 
 @Component({
 	selector: 'app-entrance-component',
@@ -33,7 +35,8 @@ export class EntranceComponent {
 
 	constructor(
 		public dialogRef: MatDialogRef<EntranceComponent>,
-		@Inject(MAT_DIALOG_DATA) public data: any
+		@Inject(MAT_DIALOG_DATA) public data: { item: Item },
+		public entranceService: EntranceService
 	) {
 
 		this.filteredOptions = this.myControl.valueChanges
@@ -50,11 +53,15 @@ export class EntranceComponent {
 
 	ok() {
 
-		this.dialogRef.close({
+		this.entranceService.create({
+			itemId: this.data.item.id,
 			amount: this.amount,
 			value: this.value,
 			date: this.date,
 			location: this.location
+		}).then(entrance => {
+
+			this.dialogRef.close(entrance);
 		});
 	}
 
