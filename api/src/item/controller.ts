@@ -1,4 +1,3 @@
-// import { IItem, ItemModel } from './model';
 import { getManager } from 'typeorm';
 import { Item } from './Item.model';
 

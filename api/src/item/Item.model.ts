@@ -1,4 +1,4 @@
-import { Entity, Column, OneToOne, ObjectIdColumn, ObjectID } from 'typeorm';
+import { Entity, Column, OneToOne, JoinColumn, PrimaryGeneratedColumn } from 'typeorm';
 import { Category } from '../category/Category.model';
 
 enum Unity {
@@ -10,15 +10,22 @@ enum Unity {
 @Entity()
 export class Item {
 
-	@ObjectIdColumn()
-	id: ObjectID;
+	@PrimaryGeneratedColumn()
+	id: number;
+
+	@Column()
+	name: string;
 
 	@Column({
 		enum: Unity
 	})
 	unity: string;
 
-	@OneToOne(() => Category)
+	@Column({ type: 'int', nullable: true })
+	categoryId: number;
+
+	@OneToOne(() => Category, category => category.id)
+	@JoinColumn({ name: 'categoryId' })
 	category: Category;
 
 	constructor(data: any) {

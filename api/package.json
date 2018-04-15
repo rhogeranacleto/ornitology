@@ -20,6 +20,7 @@
 		"@types/hapi": "^17.0.7",
 		"@types/mongoose": "^5.0.7",
 		"hapi": "^17.2.3",
+		"pg": "^7.4.1",
 		"typescript": "^2.7.2",
 		"mongodb": "2.2.31",
 		"typeorm": "^0.1.0"

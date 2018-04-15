@@ -1,3 +1,5 @@
+import { Category } from '../category/category';
+
 export enum Unity {
 	un = 'un',
 	kg = 'kg',
@@ -6,6 +8,7 @@ export enum Unity {
 
 export class Item {
 	name: string;
-	category: any;
+	categoryId: string;
+	category: Category;
 	unity: Unity;
 }

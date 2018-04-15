@@ -1,10 +1,10 @@
-import { Entity, Column, CreateDateColumn, UpdateDateColumn, ObjectID, ObjectIdColumn } from 'typeorm';
+import { Entity, Column, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Category {
 
-	@ObjectIdColumn()
-   id: ObjectID;
+	@PrimaryGeneratedColumn()
+	id: number;
 
 	@Column()
 	name: string;

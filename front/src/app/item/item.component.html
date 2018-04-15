@@ -7,7 +7,7 @@
 			<input matInput placeholder="Nome" formControlName="name" [(ngModel)]="item.name">
 		</mat-form-field>
 		<mat-form-field>
-			<mat-select placeholder="Categoria" [(value)]="item.category">
+			<mat-select placeholder="Categoria" [(value)]="item.categoryId">
 				<mat-option *ngFor="let category of categories" [value]="category.id">
 					{{ category.name }}
 				</mat-option>
@@ -29,7 +29,7 @@
 	<div *ngFor="let category of categories">
 		<h4>{{category.name}}</h4>
 		<div *ngFor="let item of items">
-			<mat-list-item *ngIf="item.category == category.id" role="listitem">
+			<mat-list-item *ngIf="item.categoryId == category.id" role="listitem">
 				<app-list-item [item]="item"></app-list-item>
 			</mat-list-item>
 		</div>

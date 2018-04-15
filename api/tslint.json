@@ -25,7 +25,8 @@
 			"ban-single-arg-parens"
 		],
 		"ordered-imports": false,
-		"member-access": false
+		"member-access": false,
+		"no-angle-bracket-type-assertion": false
 	},
 	"rulesDirectory": []
 }
