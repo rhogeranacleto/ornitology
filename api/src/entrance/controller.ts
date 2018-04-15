@@ -1,11 +1,22 @@
 import { Entrance } from './Entrance.model';
 import { getManager } from 'typeorm';
+import { Item } from '../item/Item.model';
 
 export class EntranceController {
 
-	static create(entrance: Entrance) {
+	static async create(entrance: Entrance) {
 
-		return getManager().save(entrance);
+		const manager = getManager();
+
+		await manager.save(entrance);
+
+		const item = await manager.findOneById(Item, entrance.itemId);
+
+		item.amount += (entrance.amount || 0);
+
+		await manager.save(item);
+
+		return entrance;
 	}
 
 	static getLocations() {

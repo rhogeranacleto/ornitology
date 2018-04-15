@@ -28,6 +28,9 @@ export class Item {
 	@JoinColumn({ name: 'categoryId' })
 	category: Category;
 
+	@Column({ default: 0 })
+	amount: number;
+
 	constructor(data: any) {
 
 		Object.assign(this, data);

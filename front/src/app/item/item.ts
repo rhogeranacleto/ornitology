@@ -12,6 +12,7 @@ export class Item {
 	categoryId: string;
 	category: Category;
 	unity: Unity;
+	amount: number;
 }
 
 export interface IEntrance {
