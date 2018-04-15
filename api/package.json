@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "./node_modules/nodemon/bin/nodemon.js"
+		"dev": "./node_modules/nodemon/bin/nodemon.js",
+		"build": "./node_modules/typescript/bin/tsc"
 	},
 	"author": "",
 	"license": "ISC",
@@ -20,7 +21,8 @@
 		"@types/mongoose": "^5.0.7",
 		"hapi": "^17.2.3",
 		"typescript": "^2.7.2",
-		"mongoose": "^5.0.11"
+		"mongodb": "2.2.31",
+		"typeorm": "^0.1.0"
 	},
 	"engines": {
 		"node": "8.9.0"

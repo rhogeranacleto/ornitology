@@ -1,14 +1,16 @@
-import { IItem, ItemModel } from './model';
+// import { IItem, ItemModel } from './model';
+import { getManager } from 'typeorm';
+import { Item } from './Item.model';
 
 export class ItemController {
 
 	public static getAll() {
 
-		return ItemModel.find();
+		return getManager().find(Item);
 	}
 
-	public static create(item: IItem) {
+	public static create(item: Item) {
 
-		return item.save();
+		return getManager().save(item);
 	}
 }

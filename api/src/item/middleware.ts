@@ -1,10 +1,10 @@
 import { Request } from 'hapi';
 import { ItemController } from './controller';
-import { ItemModel } from './model';
+import { Item } from './Item.model';
 
 export function create(request: Request) {
 
-	return ItemController.create(new ItemModel(request.payload));
+	return ItemController.create(new Item(request.payload));
 }
 
 export function getAll(request: Request) {

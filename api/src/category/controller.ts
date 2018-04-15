@@ -1,14 +1,15 @@
-import { CategoryModel, ICategory } from './model';
+import { Category } from './Category.model';
+import { getManager } from 'typeorm';
 
 export class ItemController {
 
 	public static getAll() {
 
-		return CategoryModel.find();
+		return getManager().find(Category);
 	}
 
-	public static create(item: ICategory) {
+	public static async create(category: Category) {
 
-		return item.save();
+		return await getManager().save(category);
 	}
 }
