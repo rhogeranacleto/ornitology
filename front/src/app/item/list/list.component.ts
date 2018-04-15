@@ -1,12 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Item } from '../item';
+import { Item, IEntrance } from '../item';
 import { MatDialog } from '@angular/material';
-import { AddItemComponent } from './add-item';
+import { EntranceComponent } from '../entrance/entrance.component';
 
 @Component({
 	selector: 'app-list-item',
-	templateUrl: './list-item.html',
-	styleUrls: ['./list-item.css']
+	templateUrl: './list.component.html',
+	styleUrls: ['./list.component.css']
 })
 export class ListItemComponent implements OnInit {
 
@@ -20,15 +20,15 @@ export class ListItemComponent implements OnInit {
 
 	add() {
 
-		const dialogRef = this.dialog.open(AddItemComponent, {
+		const dialogRef = this.dialog.open(EntranceComponent, {
 			data: {
 				item: this.item
 			}
 		});
 
-		dialogRef.afterClosed().subscribe(result => {
+		dialogRef.afterClosed().subscribe((result: IEntrance) => {
 
-			console.log(result);
+			result.itemId = this.item.id;
 		});
 	}
 }

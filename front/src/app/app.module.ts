@@ -33,8 +33,9 @@ import { ItemService } from './item/item.service';
 import { RouterModule, Routes } from '@angular/router';
 import { appRoutes } from './routes';
 import { CategoryComponent } from './category/category.component';
-import { ListItemComponent } from './item/components/list-item';
-import { AddItemComponent } from './item/components/add-item';
+import { ListItemComponent } from './item/list/list.component';
+import { EntranceComponent } from './item/entrance/entrance.component';
+import { EntranceService } from './item/entrance/entrance.service';
 
 @NgModule({
 	declarations: [
@@ -42,7 +43,7 @@ import { AddItemComponent } from './item/components/add-item';
 		ItemComponent,
 		CategoryComponent,
 		ListItemComponent,
-		AddItemComponent
+		EntranceComponent
 	],
 	imports: [
 		BrowserModule,
@@ -80,9 +81,10 @@ import { AddItemComponent } from './item/components/add-item';
 			provide: MAT_DATE_LOCALE,
 			useValue: 'pt-BR'
 		},
+		EntranceService
 	],
 	entryComponents: [
-		AddItemComponent
+		EntranceComponent
 	],
 	bootstrap: [AppComponent]
 })

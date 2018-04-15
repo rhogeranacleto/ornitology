@@ -7,11 +7,11 @@ import { startWith } from 'rxjs/operators/startWith';
 import { map } from 'rxjs/operators/map';
 
 @Component({
-	selector: 'app-add-item',
-	templateUrl: 'add-item.html',
-	styleUrls: ['add-item.css']
+	selector: 'app-entrance-component',
+	templateUrl: 'entrance.component.html',
+	styleUrls: ['entrance.component.css']
 })
-export class AddItemComponent {
+export class EntranceComponent {
 
 	amount = 0;
 
@@ -32,7 +32,7 @@ export class AddItemComponent {
 	];
 
 	constructor(
-		public dialogRef: MatDialogRef<AddItemComponent>,
+		public dialogRef: MatDialogRef<EntranceComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: any
 	) {
 
