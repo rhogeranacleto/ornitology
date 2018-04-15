@@ -27,11 +27,7 @@ export class EntranceComponent {
 
 	filteredOptions: Observable<string[]>;
 
-	options = [
-		'One',
-		'Two',
-		'Three'
-	];
+	options = [];
 
 	constructor(
 		public dialogRef: MatDialogRef<EntranceComponent>,
@@ -44,6 +40,11 @@ export class EntranceComponent {
 				startWith(''),
 				map(val => this.filter(val))
 			);
+
+		this.entranceService.getAllLocations().then(locations => {
+
+			this.options = locations;
+		});
 	}
 
 	onNoClick(): void {

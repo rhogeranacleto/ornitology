@@ -7,4 +7,9 @@ export class EntranceController {
 
 		return getManager().save(entrance);
 	}
+
+	static getLocations() {
+
+		return getManager().query('select distinct(location) from entrance').then(data => data.map((d: any) => d.location));
+	}
 }

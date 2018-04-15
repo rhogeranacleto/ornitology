@@ -12,4 +12,9 @@ export class EntranceService {
 
 		return this.http.post<IEntrance>(environment.api + '/entrance', entrance).toPromise();
 	}
+
+	getAllLocations() {
+
+		return this.http.get<string[]>(environment.api + '/entrances/locations').toPromise();
+	}
 }

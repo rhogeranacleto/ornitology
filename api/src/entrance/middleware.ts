@@ -6,3 +6,8 @@ export function createEntrance(request: Request) {
 
 	return EntranceController.create(new Entrance(request.payload));
 }
+
+export function getAllLocations(request: Request) {
+
+	return EntranceController.getLocations();
+}
