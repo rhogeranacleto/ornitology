@@ -36,6 +36,8 @@ import { CategoryComponent } from './category/category.component';
 import { ListItemComponent } from './item/list/list.component';
 import { EntranceComponent } from './item/entrance/entrance.component';
 import { EntranceService } from './item/entrance/entrance.service';
+import { ExitComponent } from './item/exit/exit.component';
+import { ExitService } from './item/exit/exit.service';
 
 @NgModule({
 	declarations: [
@@ -43,7 +45,8 @@ import { EntranceService } from './item/entrance/entrance.service';
 		ItemComponent,
 		CategoryComponent,
 		ListItemComponent,
-		EntranceComponent
+		EntranceComponent,
+		ExitComponent
 	],
 	imports: [
 		BrowserModule,
@@ -81,10 +84,12 @@ import { EntranceService } from './item/entrance/entrance.service';
 			provide: MAT_DATE_LOCALE,
 			useValue: 'pt-BR'
 		},
-		EntranceService
+		EntranceService,
+		ExitService
 	],
 	entryComponents: [
-		EntranceComponent
+		EntranceComponent,
+		ExitComponent
 	],
 	bootstrap: [AppComponent]
 })

@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Saída de {{data.item.name}}</h1>
+<div mat-dialog-content>
+	<mat-form-field>
+		<button mat-icon-button matPrefix (click)="removeAmount()">
+			<mat-icon aria-label="Adicionar">remove_circle_outline</mat-icon>
+		</button>
+		<input matInput placeholder="Quantidade" type="number" [(ngModel)]="amount">
+		<button mat-icon-button matSuffix (click)="addAmount()">
+			<mat-icon aria-label="Adicionar">add_circle_outline</mat-icon>
+		</button>
+	</mat-form-field>
+	<mat-form-field>
+		<input matInput [matDatepicker]="exitDate" placeholder="Data de compra" [(ngModel)]="date">
+		<mat-datepicker-toggle matSuffix [for]="exitDate"></mat-datepicker-toggle>
+		<mat-datepicker #exitDate disabled="false"></mat-datepicker>
+	</mat-form-field>
+</div>
+<div mat-dialog-actions>
+	<button mat-button (click)="onNoClick()">Cancelar</button>
+	<button mat-button (click)="ok()" cdkFocusInitial>Ok</button>
+</div>

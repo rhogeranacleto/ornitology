@@ -2,6 +2,7 @@ import { Server } from 'hapi';
 import { categoryRoutes } from './category/routes';
 import { itemRoutes } from './item/routes';
 import { entranceRoutes } from './entrance/routes';
+import { exitRoutes } from './exit/routes';
 
 export async function createServer() {
 
@@ -27,6 +28,7 @@ export async function createServer() {
 	server.route(itemRoutes);
 	server.route(categoryRoutes);
 	server.route(entranceRoutes);
+	server.route(exitRoutes);
 
 	console.log('Rodando');
 }

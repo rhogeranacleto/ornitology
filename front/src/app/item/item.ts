@@ -15,9 +15,17 @@ export class Item {
 }
 
 export interface IEntrance {
+	readonly id?: number;
 	itemId: number;
 	amount: number;
 	value: number;
 	date: Date;
 	location: string;
+}
+
+export interface IExit {
+	readonly id?: number;
+	itemId: number;
+	amount: number;
+	date: Date;
 }

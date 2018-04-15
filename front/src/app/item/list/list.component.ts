@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Item, IEntrance } from '../item';
+import { Item, IEntrance, IExit } from '../item';
 import { MatDialog } from '@angular/material';
 import { EntranceComponent } from '../entrance/entrance.component';
+import { ExitComponent } from '../exit/exit.component';
 
 @Component({
 	selector: 'app-list-item',
@@ -27,6 +28,20 @@ export class ListItemComponent implements OnInit {
 		});
 
 		dialogRef.afterClosed().subscribe((result: IEntrance) => {
+
+			console.log(result);
+		});
+	}
+
+	remove() {
+
+		const dialogRef = this.dialog.open(ExitComponent, {
+			data: {
+				item: this.item
+			}
+		});
+
+		dialogRef.afterClosed().subscribe((result: IExit) => {
 
 			console.log(result);
 		});

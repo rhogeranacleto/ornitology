@@ -7,7 +7,7 @@
 	<div class="item-name">{{item.name}}</div>
 	<div>{{item.unity}}</div>
 	<div>
-		<button mat-icon-button>
+		<button mat-icon-button (click)="remove()">
 			<mat-icon aria-label="Adicionar">remove_circle_outline</mat-icon>
 		</button>
 	</div>
