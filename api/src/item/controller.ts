@@ -3,9 +3,11 @@ import { Item } from './Item.model';
 
 export class ItemController {
 
-	public static getAll() {
+	public static async getAll() {
 
-		return getManager().find(Item);
+		const manager = getManager();
+
+		return await manager.find(Item);
 	}
 
 	public static create(item: Item) {

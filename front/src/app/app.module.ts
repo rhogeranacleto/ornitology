@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
@@ -38,6 +38,10 @@ import { EntranceComponent } from './item/entrance/entrance.component';
 import { EntranceService } from './item/entrance/entrance.service';
 import { ExitComponent } from './item/exit/exit.component';
 import { ExitService } from './item/exit/exit.service';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt, 'pt-BR');
 
 @NgModule({
 	declarations: [
@@ -85,7 +89,11 @@ import { ExitService } from './item/exit/exit.service';
 			useValue: 'pt-BR'
 		},
 		EntranceService,
-		ExitService
+		ExitService,
+		{
+			provide: LOCALE_ID,
+			useValue: 'pt-BR'
+		}
 	],
 	entryComponents: [
 		EntranceComponent,

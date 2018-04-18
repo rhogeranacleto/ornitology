@@ -14,6 +14,8 @@ export class EntranceController {
 
 		item.amount += (entrance.amount || 0);
 
+		item.lastEntranceDate = entrance.date;
+
 		await manager.save(item);
 
 		return entrance;

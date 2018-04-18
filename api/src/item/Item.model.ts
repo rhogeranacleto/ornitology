@@ -31,6 +31,9 @@ export class Item {
 	@Column({ default: 0 })
 	amount: number;
 
+	@Column('timestamp', { nullable: true })
+	lastEntranceDate: Date;
+
 	constructor(data: any) {
 
 		Object.assign(this, data);
