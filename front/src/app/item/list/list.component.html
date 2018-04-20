@@ -4,10 +4,16 @@
 			<mat-icon aria-label="Adicionar">add_circle_outline</mat-icon>
 		</button>
 	</div>
-	<div class="item-name">{{item.name}}</div>
-	<div>{{item.amount}}</div>
-	<div>{{item.unity}}</div>
-	<div>{{item.lastEntranceDate | date:shortDate}}</div>
+	<div class="subject">
+		<div class="row">
+			<div class="item-name">{{item.name}}</div>
+			<div>{{item.amount}} {{item.unity}}</div>
+		</div>
+		<div class="row">
+			<div class="small">{{item.lastEntranceDate | date:'shortDate'}}</div>
+			<div class="small">{{item.averageValue}}</div>
+		</div>
+	</div>
 	<div>
 		<button mat-icon-button (click)="remove()">
 			<mat-icon aria-label="Adicionar">remove_circle_outline</mat-icon>

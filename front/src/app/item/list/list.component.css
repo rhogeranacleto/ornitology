@@ -3,6 +3,19 @@
 	align-items: center;
 }
 
+.subject {
+	flex: 1;
+}
+
+.subject>.row {
+	display: flex;
+	justify-content: space-between;
+}
+
 .item-name {
 	flex: 1;
+}
+
+.small {
+	font-size: 10px;
 }

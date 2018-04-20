@@ -13,6 +13,8 @@ export class Item {
 	category: Category;
 	unity: Unity;
 	amount: number;
+	readonly lastEntranceDate?: Date;
+	readonly averageValue?: number;
 }
 
 export interface IEntrance {

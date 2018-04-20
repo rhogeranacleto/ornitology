@@ -1,0 +1,29 @@
+.create-new-button,
+.create-new-form {
+	margin: 10px;
+}
+
+.create-new-button>button {
+	width: 100%;
+}
+
+.create-new-form form {
+	display: flex;
+	flex-direction: column;
+}
+
+.create-new-form mat-form-field {
+	flex: 1;
+}
+
+.create-new-form>form>div {
+	display: flex;
+}
+
+.create-new-form .buttons {
+	justify-content: flex-end;
+}
+
+.list-items h3 {
+	margin: 10px 10px 5px 40px;
+}

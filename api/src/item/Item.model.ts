@@ -34,6 +34,9 @@ export class Item {
 	@Column('timestamp', { nullable: true })
 	lastEntranceDate: Date;
 
+	@Column('decimal', { default: 0 })
+	averageValue: number;
+
 	constructor(data: any) {
 
 		Object.assign(this, data);

@@ -16,6 +16,16 @@ export class EntranceController {
 
 		item.lastEntranceDate = entrance.date;
 
+		const avg = await manager.getRepository(Entrance)
+			.createQueryBuilder('entrance')
+			.select('avg(entrance.value)', 'value')
+			.groupBy('entrance.itemId')
+			.where('entrance.itemId = :id', {
+				id: entrance.itemId
+			}).getRawOne();
+
+		item.averageValue = +(avg.value);
+
 		await manager.save(item);
 
 		return entrance;
