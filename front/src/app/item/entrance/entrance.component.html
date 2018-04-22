@@ -4,14 +4,16 @@
 		<button mat-icon-button matPrefix (click)="removeAmount()">
 			<mat-icon aria-label="Adicionar">remove_circle_outline</mat-icon>
 		</button>
-		<input matInput placeholder="Quantidade" type="number" [(ngModel)]="amount">
+		<input matInput placeholder="Quantidade" type="number" [ngModel]="amount" #am (blur)="updateAmount(am.value)">
 		<button mat-icon-button matSuffix (click)="addAmount()">
 			<mat-icon aria-label="Adicionar">add_circle_outline</mat-icon>
 		</button>
 	</mat-form-field>
+	<mat-slide-toggle [checked]="unitary" (change)="changeUnitary()">Valor unitário</mat-slide-toggle>
 	<mat-form-field>
 		<span matPrefix>R$ &nbsp;</span>
-		<input matInput placeholder="Valor" type="number" [(ngModel)]="value">
+		<input matInput placeholder="{{unitary ? 'Valor unitário' : 'Valor total'}}" type="number" #vl (blur)="updateValue(vl.value)"
+		    [ngModel]="showValue">
 	</mat-form-field>
 	<mat-form-field>
 		<input matInput [matDatepicker]="shopDate" placeholder="Data de compra" [(ngModel)]="date">

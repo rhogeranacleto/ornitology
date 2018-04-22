@@ -23,7 +23,8 @@ import {
 	MatDatepickerModule,
 	MatNativeDateModule,
 	MAT_DATE_LOCALE,
-	MatAutocompleteModule
+	MatAutocompleteModule,
+	MatSlideToggleModule
 } from '@angular/material';
 import { ItemComponent } from './item/item.component';
 import { CategoryService } from './category/category.service';
@@ -40,6 +41,8 @@ import { ExitComponent } from './item/exit/exit.component';
 import { ExitService } from './item/exit/exit.service';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+
+import 'hammerjs';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -74,6 +77,7 @@ registerLocaleData(localePt, 'pt-BR');
 		MatDatepickerModule,
 		MatNativeDateModule,
 		MatAutocompleteModule,
+		MatSlideToggleModule,
 		FormsModule,
 		RouterModule.forRoot(
 			appRoutes,

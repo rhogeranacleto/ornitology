@@ -1,10 +1,15 @@
 import { createConnection } from 'typeorm';
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
+// tslint:disable-next-line:no-var-requires
+const pg = require('pg');
 
 export async function connectDB() {
 
 	try {
+
 		console.log(process.env.NODE_ENV);
+
+		pg.types.setTypeParser(1700, (v: any) => parseFloat(v));
 
 		const connectionConfig = {
 			type: 'postgres',

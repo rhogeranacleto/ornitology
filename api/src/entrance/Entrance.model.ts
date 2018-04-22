@@ -14,8 +14,11 @@ export class Entrance extends BaseModel {
 	@Column()
 	amount: number;
 
-	@Column()
+	@Column('double precision')
 	value: number;
+
+	@Column('double precision', { default: 0 })
+	totalValue: number;
 
 	@Column()
 	location: string;

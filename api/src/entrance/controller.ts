@@ -15,6 +15,8 @@ export class EntranceController {
 		item.amount += (entrance.amount || 0);
 
 		item.lastEntranceDate = entrance.date;
+		console.log(entrance);
+		item.lastEntranceValue = entrance.value;
 
 		const avg = await manager.getRepository(Entrance)
 			.createQueryBuilder('entrance')

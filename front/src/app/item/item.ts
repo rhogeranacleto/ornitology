@@ -22,6 +22,7 @@ export interface IEntrance {
 	itemId: number;
 	amount: number;
 	value: number;
+	totalValue: number;
 	date: Date;
 	location: string;
 }

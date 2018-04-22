@@ -34,7 +34,10 @@ export class Item {
 	@Column('timestamp', { nullable: true })
 	lastEntranceDate: Date;
 
-	@Column('decimal', { default: 0 })
+	@Column('double precision', { default: 0 })
+	lastEntranceValue: number;
+
+	@Column('double precision', { default: 0 })
 	averageValue: number;
 
 	constructor(data: any) {

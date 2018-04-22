@@ -19,6 +19,8 @@ export class EntranceComponent {
 
 	value = 0;
 
+	totalValue = 0;
+
 	date = new Date();
 
 	location = '';
@@ -28,6 +30,10 @@ export class EntranceComponent {
 	filteredOptions: Observable<string[]>;
 
 	options = [];
+
+	unitary = true;
+
+	showValue = 0;
 
 	constructor(
 		public dialogRef: MatDialogRef<EntranceComponent>,
@@ -57,7 +63,8 @@ export class EntranceComponent {
 		this.entranceService.create({
 			itemId: this.data.item.id,
 			amount: this.amount,
-			value: this.value,
+			value: +this.value,
+			totalValue: +this.totalValue,
 			date: this.date,
 			location: this.location
 		}).then(entrance => {
@@ -68,21 +75,56 @@ export class EntranceComponent {
 
 	addAmount() {
 
-		this.amount++;
+		this.updateAmount(this.amount + 1);
 	}
 
 	removeAmount() {
 
-		this.amount--;
-
-		if (this.amount < 0) {
-
-			this.amount = 0;
-		}
+		this.updateAmount(this.amount - 1);
 	}
 
 	filter(val: string): string[] {
 
 		return this.options.filter(option => option.toLowerCase().indexOf(val.toLowerCase()) === 0);
+	}
+
+	changeUnitary() {
+
+		this.unitary = !this.unitary;
+
+		if (this.unitary) {
+
+			this.showValue = this.value;
+		} else {
+
+			this.showValue = this.totalValue;
+		}
+	}
+
+	updateValue(value: number) {
+
+		if (this.unitary) {
+
+			this.value = value;
+			this.totalValue = value * this.amount;
+		} else {
+
+			this.totalValue = value;
+			this.value = value / this.amount;
+		}
+
+		this.showValue = value;
+	}
+
+	updateAmount(amount: number) {
+
+		this.amount = +amount;
+
+		if (this.amount < 0) {
+
+			this.amount = 0;
+		}
+
+		this.updateValue(this.showValue);
 	}
 }
